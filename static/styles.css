@@ -1,0 +1,115 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(145deg, #e2e8f0, #f8fafc);
+    padding: 1rem;
+}
+
+/* Chessboard Styling */
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr); /* FIXES squishing */
+    aspect-ratio: 1 / 1;
+    max-width: 90vmin;
+    width: 100%;
+    gap: 2px;
+    border: 4px solid #222;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* Square Styling */
+.chessboard div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s ease-in-out;
+}
+
+/* Light and Dark Squares */
+.white {
+    background-color: #f0d9b5;
+}
+
+.black {
+    background-color: #b58863;
+}
+
+/* Hover Effect */
+.chessboard div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+/* Highlighted Square */
+.highlight {
+    border: 3px solid #e53935;
+    box-shadow: 0 0 12px rgba(255, 87, 34, 0.7);
+    z-index: 2;
+}
+
+/* Piece Styling */
+.chessboard div span {
+    font-size: inherit;
+    transition: transform 0.2s ease;
+}
+
+/* Move Animation */
+.moving {
+    animation: movePiece 0.3s ease-out;
+}
+
+@keyframes movePiece {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Toast Notification */
+#toast {
+    visibility: hidden;
+    min-width: 220px;
+    max-width: 90%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 14px 18px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    opacity: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+}
