@@ -24,11 +24,15 @@ Session and color assignment per player
 
 .
 ├── app.py              # Main server logic (Flask + Socket.IO)
+
 ├── templates/
 │   └── index.html      # Frontend for the chess board
+
 ├── static/
 │   └── (Optional CSS/JS)
+
 ├── requirements.txt    # Required Python packages
+
 └── README.md
 
 🚀 Getting Started
