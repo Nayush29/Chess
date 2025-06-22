@@ -23,6 +23,7 @@ Session and color assignment per player
 🏗 Project Structure
 
 .
+
 ├── app.py              # Main server logic (Flask + Socket.IO)
 
 ├── templates/
